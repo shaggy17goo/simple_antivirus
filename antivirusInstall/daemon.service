@@ -1,0 +1,9 @@
+[Unit]
+Description=Najlepszy antyvirus 
+
+[Service]
+Type=simple
+ExecStart=/usr/antivirus/daemon
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,491 @@
+ubuntu@ubunu2004:~/Desktop/bso_antyswirus/antivirusInstall$ sudo clang-tidy --checks=*,-readability* daemon.c
+260 warnings generated.
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:32:9: warning: variable 's' is not initialized [cppcoreguidelines-init-variables]
+    int s, s2;
+        ^
+          = 0
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:32:12: warning: variable 's2' is not initialized [cppcoreguidelines-init-variables]
+    int s, s2;
+           ^
+              = 0
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:33:15: warning: variable 'len' is not initialized [cppcoreguidelines-init-variables]
+    socklen_t len;
+              ^
+                  = 0
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:34:18: warning: variable 't' is not initialized [cppcoreguidelines-init-variables]
+    unsigned int t;
+                 ^
+                   = 0
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:45:5: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+    strncpy(local.sun_path, SOCK_PATH, sizeof(local.sun_path));
+    ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:45:5: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:60:17: warning: variable 'done' is not initialized [cppcoreguidelines-init-variables]
+        ssize_t done, n;
+                ^
+                     = 0
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:60:23: warning: variable 'n' is not initialized [cppcoreguidelines-init-variables]
+        ssize_t done, n;
+                      ^
+                        = 0
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:63:19: warning: prefer accept4() to accept() because accept4() allows SOCK_CLOEXEC [android-cloexec-accept]
+        if ((s2 = accept(s, (struct sockaddr *) &remote, &t)) == -1) {
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  accept4(s, (struct sockaddr *) &remote, &t, SOCK_CLOEXEC)
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:72:13: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+            memset(command, 0, PATH_MAX);
+            ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:72:13: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:75:27: warning: statement should be inside braces [hicpp-braces-around-statements]
+                if (n < 0) perror("recv");
+                          ^
+                           {
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:80:59: warning: statement should be inside braces [google-readability-braces-around-statements]
+                if (interpretInput(command, output) == -1)
+                                                          ^
+                                                           {
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:80:59: warning: statement should be inside braces [hicpp-braces-around-statements]
+                if (interpretInput(command, output) == -1)
+                                                          ^
+                                                           {
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:87:13: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+            memset(output, 0, PATH_MAX);
+            ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:87:13: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:101:11: warning: variable 'ptr' is not initialized [cppcoreguidelines-init-variables]
+    char *ptr;
+          ^
+              = NULL
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:107:17: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+                strncpy(output, "can't be opened", sizeof("can't be opened") - 1);
+                ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:107:17: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:110:17: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+                strncpy(output, "file is not a malware", sizeof("file is not a malware") - 1);
+                ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:110:17: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:113:17: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+                strncpy(output, "file is a malware", sizeof("file is a malware") - 1);
+                ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:113:17: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:122:13: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+            strncpy(output, "fail when try opened dir", sizeof("fail when try opened dir") - 1);
+            ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:122:13: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:124:31: warning: statement should be inside braces [google-readability-braces-around-statements]
+        if (malwareCount == 0)
+                              ^
+                               {
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:124:31: warning: statement should be inside braces [hicpp-braces-around-statements]
+        if (malwareCount == 0)
+                              ^
+                               {
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:125:13: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+            strncpy(output, "dir is clear", sizeof("dir is clear") - 1);
+            ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:125:13: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:126:13: warning: statement should be inside braces [google-readability-braces-around-statements]
+        else
+            ^
+             {
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:126:13: warning: statement should be inside braces [hicpp-braces-around-statements]
+        else
+            ^
+             {
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:127:13: warning: Call to function 'snprintf' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'snprintf_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+            snprintf(output, PATH_MAX, "in dir is malware\n   scanned: %d\n   malware: %d", fileCount, malwareCount);
+            ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:127:13: note: Call to function 'snprintf' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'snprintf_s' in case of C11
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:130:9: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+        strncpy(output, "logs are available in /usr/antivirus", sizeof("logs are available in /usr/antivirus") - 1);
+        ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:130:9: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:134:13: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+            strncpy(output, "Decrypted successful", sizeof("Decrypted successful") - 1);
+            ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:134:13: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:136:13: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+            strncpy(output, "Decrypted failed", sizeof("Decrypted failed") - 1);
+            ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:136:13: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:143:9: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+        strncpy(output, "invalid input", sizeof("invalid input") - 1);
+        ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:143:9: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:154:11: warning: variable 'ptr' is not initialized [cppcoreguidelines-init-variables]
+    char *ptr;
+          ^
+              = NULL
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:170:11: warning: variable 'file1' is not initialized [cppcoreguidelines-init-variables]
+    FILE *file1;
+          ^
+                = NULL
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:171:11: warning: variable 'file2' is not initialized [cppcoreguidelines-init-variables]
+    FILE *file2;
+          ^
+                = NULL
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:177:19: warning: variable 'bytes' is not initialized [cppcoreguidelines-init-variables]
+    unsigned long bytes;
+                  ^
+                        = 0
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:178:11: warning: variable 'ptr' is not initialized [cppcoreguidelines-init-variables]
+    char *ptr;
+          ^
+              = NULL
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:180:27: warning: 1024 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers]
+    size_t md5chunkSize = 1024;
+                          ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:185:29: warning: use 'fopen' mode 'e' to set O_CLOEXEC [android-cloexec-fopen]
+    file1 = fopen(filepath, "rb");
+                            ^~~~
+                            "rbe"
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:198:46: warning: use 'fopen' mode 'e' to set O_CLOEXEC [android-cloexec-fopen]
+    file1 = fopen("/usr/antivirus/logs.txt", "a");
+                                             ^~~
+                                             "ae"
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:206:44: warning: use 'fopen' mode 'e' to set O_CLOEXEC [android-cloexec-fopen]
+    file2 = fopen("/usr/antivirus/hashes", "rb");
+                                           ^~~~
+                                           "rbe"
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:216:30: warning: statement should be inside braces [google-readability-braces-around-statements]
+        if (feof(file2) != 0)
+                             ^
+                              {
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:216:30: warning: statement should be inside braces [hicpp-braces-around-statements]
+        if (feof(file2) != 0)
+                             ^
+                              {
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:224:13: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+            strncpy(filepathCopy, filepath, PATH_MAX);
+            ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:224:13: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:227:17: warning: Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+                strncat(pathToQuarantine, "_", sizeof("_"));
+                ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:227:17: note: Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:228:17: warning: Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+                strncat(pathToQuarantine, ptr, strlen(ptr));
+                ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:228:17: note: Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:234:37: warning: use 'fopen' mode 'e' to set O_CLOEXEC [android-cloexec-fopen]
+            file1 = fopen(filepath, "rb");
+                                    ^~~~
+                                    "rbe"
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:235:45: warning: use 'fopen' mode 'e' to set O_CLOEXEC [android-cloexec-fopen]
+            file2 = fopen(pathToQuarantine, "wb");
+                                            ^~~~
+                                            "wbe"
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:242:17: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+                memset(data, 0, sizeof(data));
+                ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:242:17: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:264:10: warning: variable 'dir' is not initialized [cppcoreguidelines-init-variables]
+    DIR *dir;
+         ^
+             = NULL
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:265:20: warning: variable 'dirp' is not initialized [cppcoreguidelines-init-variables]
+    struct dirent *dirp;
+                   ^
+                        = NULL
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:275:9: warning: Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+        strncat(cwd, "/", sizeof("/"));
+        ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:275:9: note: Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:280:13: warning: Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+            strncat(cwd, dirp->d_name, sizeof(dirp->d_name));
+            ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:280:13: note: Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:296:30: warning: use 'fopen' mode 'e' to set O_CLOEXEC [android-cloexec-fopen]
+    FILE *file = fopen(path, "rb");
+                             ^~~~
+                             "rbe"
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:308:5: warning: Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+    strncat(path, "_ciphered", sizeof("_ciphered"));
+    ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:308:5: note: Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:309:34: warning: use 'fopen' mode 'e' to set O_CLOEXEC [android-cloexec-fopen]
+    FILE *ciphered = fopen(path, "wb");
+                                 ^~~~
+                                 "wbe"
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:325:9: warning: Potential leak of memory pointed to by 'indata' [clang-analyzer-unix.Malloc]
+        printf("malloc failed\n");
+        ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:39:9: note: Assuming the condition is false
+    if ((s = socket(AF_UNIX, SOCK_STREAM, 0)) == -1) {
+        ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:39:5: note: Taking false branch
+    if ((s = socket(AF_UNIX, SOCK_STREAM, 0)) == -1) {
+    ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:48:9: note: Assuming the condition is false
+    if (bind(s, (struct sockaddr *) &local, len) == -1) {
+        ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:48:5: note: Taking false branch
+    if (bind(s, (struct sockaddr *) &local, len) == -1) {
+    ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:54:9: note: Assuming the condition is false
+    if (listen(s, BACK_LOG) == -1) {
+        ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:54:5: note: Taking false branch
+    if (listen(s, BACK_LOG) == -1) {
+    ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:59:5: note: Loop condition is true.  Entering loop body
+    for (;;) {
+    ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:63:13: note: Assuming the condition is false
+        if ((s2 = accept(s, (struct sockaddr *) &remote, &t)) == -1) {
+            ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:63:9: note: Taking false branch
+        if ((s2 = accept(s, (struct sockaddr *) &remote, &t)) == -1) {
+        ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:74:17: note: Assuming 'n' is > 0
+            if (n <= 0) {
+                ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:74:13: note: Taking false branch
+            if (n <= 0) {
+            ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:79:18: note: 'done' is 0
+            if (!done) {
+                 ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:79:13: note: Taking true branch
+            if (!done) {
+            ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:80:21: note: Calling 'interpretInput'
+                if (interpretInput(command, output) == -1)
+                    ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:102:9: note: Assuming the condition is true
+    if (memcmp(command, "scan-file ", sizeof("scan-file ") - 1) == 0) {
+        ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:102:5: note: Taking true branch
+    if (memcmp(command, "scan-file ", sizeof("scan-file ") - 1) == 0) {
+    ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:105:17: note: Calling 'scanFileHandler'
+        switch (scanFileHandler(ptr)) {
+                ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:186:9: note: Assuming 'file1' is not equal to NULL
+    if (file1 == NULL) {
+        ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:186:5: note: Taking false branch
+    if (file1 == NULL) {
+    ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:191:12: note: Assuming the condition is false
+    while ((bytes = fread(data, 1, md5chunkSize, file1)) != 0) {
+           ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:191:5: note: Loop condition is false. Execution continues on line 194
+    while ((bytes = fread(data, 1, md5chunkSize, file1)) != 0) {
+    ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:199:9: note: Assuming 'file1' is not equal to NULL
+    if (file1 == NULL) {
+        ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:199:5: note: Taking false branch
+    if (file1 == NULL) {
+    ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:207:9: note: Assuming 'file2' is not equal to NULL
+    if (file2 == NULL) {
+        ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:207:5: note: Taking false branch
+    if (file2 == NULL) {
+    ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:214:5: note: Loop condition is true.  Entering loop body
+    for (;;) {
+    ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:216:13: note: Assuming the condition is false
+        if (feof(file2) != 0)
+            ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:216:9: note: Taking false branch
+        if (feof(file2) != 0)
+        ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:218:13: note: Assuming the condition is true
+        if (memcmp(fileHash, hash, MD5_DIGEST_LENGTH) == 0) {
+            ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:218:9: note: Taking true branch
+        if (memcmp(fileHash, hash, MD5_DIGEST_LENGTH) == 0) {
+        ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:226:20: note: Assuming 'ptr' is equal to NULL
+            while (ptr != NULL) {
+                   ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:226:13: note: Loop condition is false. Execution continues on line 234
+            while (ptr != NULL) {
+            ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:236:17: note: Assuming 'file1' is not equal to NULL
+            if (file1 == NULL || file2 == NULL) {
+                ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:236:17: note: Left side of '||' is false
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:236:34: note: Assuming 'file2' is not equal to NULL
+            if (file1 == NULL || file2 == NULL) {
+                                 ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:236:13: note: Taking false branch
+            if (file1 == NULL || file2 == NULL) {
+            ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:240:20: note: Assuming the condition is false
+            while ((bytes = fread(data, sizeof(char), sizeof(data), file1)) != 0) {
+                   ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:240:13: note: Loop condition is false. Execution continues on line 244
+            while ((bytes = fread(data, sizeof(char), sizeof(data), file1)) != 0) {
+            ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:249:13: note: Calling 'encrypt'
+            encrypt(pathToQuarantine);
+            ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:297:9: note: Assuming 'file' is not equal to NULL
+    if (file == NULL) {
+        ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:297:5: note: Taking false branch
+    if (file == NULL) {
+    ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:303:9: note: Assuming 'fsize' is <= MAX_SIZE_TO_ENCRYPT
+    if (fsize > MAX_SIZE_TO_ENCRYPT) {
+        ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:303:5: note: Taking false branch
+    if (fsize > MAX_SIZE_TO_ENCRYPT) {
+    ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:310:9: note: Assuming 'ciphered' is not equal to NULL
+    if (ciphered == NULL) {
+        ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:310:5: note: Taking false branch
+    if (ciphered == NULL) {
+    ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:318:29: note: Memory is allocated
+    unsigned char *indata = malloc(fsize);
+                            ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:319:8: note: Assuming 'indata' is not equal to NULL
+    if(indata == NULL){
+       ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:319:5: note: Taking false branch
+    if(indata == NULL){
+    ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:324:8: note: Assuming 'outdata' is equal to NULL
+    if(outdata == NULL){
+       ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:324:5: note: Taking true branch
+    if(outdata == NULL){
+    ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:325:9: note: Potential leak of memory pointed to by 'indata'
+        printf("malloc failed\n");
+        ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:352:5: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+    memset(path, 0, sizeof("_ciphered") - 1);
+    ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:352:5: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:362:34: warning: use 'fopen' mode 'e' to set O_CLOEXEC [android-cloexec-fopen]
+    FILE *ciphered = fopen(path, "rb");
+                                 ^~~~
+                                 "rbe"
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:379:5: warning: Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+    strncat(path, "_decipher", sizeof("_decipher"));
+    ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:379:5: note: Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:380:30: warning: use 'fopen' mode 'e' to set O_CLOEXEC [android-cloexec-fopen]
+    FILE *file = fopen(path, "wb");
+                             ^~~~
+                             "wbe"
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:395:9: warning: Potential leak of memory pointed to by 'indata' [clang-analyzer-unix.Malloc]
+        printf("malloc failed\n");
+        ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:39:9: note: Assuming the condition is false
+    if ((s = socket(AF_UNIX, SOCK_STREAM, 0)) == -1) {
+        ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:39:5: note: Taking false branch
+    if ((s = socket(AF_UNIX, SOCK_STREAM, 0)) == -1) {
+    ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:48:9: note: Assuming the condition is false
+    if (bind(s, (struct sockaddr *) &local, len) == -1) {
+        ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:48:5: note: Taking false branch
+    if (bind(s, (struct sockaddr *) &local, len) == -1) {
+    ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:54:9: note: Assuming the condition is false
+    if (listen(s, BACK_LOG) == -1) {
+        ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:54:5: note: Taking false branch
+    if (listen(s, BACK_LOG) == -1) {
+    ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:59:5: note: Loop condition is true.  Entering loop body
+    for (;;) {
+    ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:63:13: note: Assuming the condition is false
+        if ((s2 = accept(s, (struct sockaddr *) &remote, &t)) == -1) {
+            ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:63:9: note: Taking false branch
+        if ((s2 = accept(s, (struct sockaddr *) &remote, &t)) == -1) {
+        ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:74:17: note: Assuming 'n' is > 0
+            if (n <= 0) {
+                ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:74:13: note: Taking false branch
+            if (n <= 0) {
+            ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:79:18: note: 'done' is 0
+            if (!done) {
+                 ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:79:13: note: Taking true branch
+            if (!done) {
+            ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:80:21: note: Calling 'interpretInput'
+                if (interpretInput(command, output) == -1)
+                    ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:102:9: note: Assuming the condition is false
+    if (memcmp(command, "scan-file ", sizeof("scan-file ") - 1) == 0) {
+        ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:102:5: note: Taking false branch
+    if (memcmp(command, "scan-file ", sizeof("scan-file ") - 1) == 0) {
+    ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:118:16: note: Assuming the condition is false
+    } else if (memcmp(command, "scan-dir ", sizeof("scan-dir ") - 1) == 0) {
+               ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:118:12: note: Taking false branch
+    } else if (memcmp(command, "scan-dir ", sizeof("scan-dir ") - 1) == 0) {
+           ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:128:16: note: Assuming the condition is false
+    } else if (memcmp(command, "get-logs", sizeof("get-logs") - 1) == 0) {
+               ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:128:12: note: Taking false branch
+    } else if (memcmp(command, "get-logs", sizeof("get-logs") - 1) == 0) {
+           ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:131:16: note: Assuming the condition is true
+    } else if (memcmp(command, "decrypt-file ", sizeof("decrypt-file ") - 1) == 0) {
+               ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:131:12: note: Taking true branch
+    } else if (memcmp(command, "decrypt-file ", sizeof("decrypt-file ") - 1) == 0) {
+           ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:133:13: note: Calling 'decrypt'
+        if (decrypt(ptr) == 1) {
+            ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:363:9: note: Assuming 'ciphered' is not equal to NULL
+    if (ciphered == NULL) {
+        ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:363:5: note: Taking false branch
+    if (ciphered == NULL) {
+    ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:370:9: note: Assuming the condition is false
+    if (fsize > 2 * MAX_SIZE_TO_ENCRYPT) {
+        ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:370:5: note: Taking false branch
+    if (fsize > 2 * MAX_SIZE_TO_ENCRYPT) {
+    ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:381:9: note: Assuming 'file' is not equal to NULL
+    if (file == NULL) {
+        ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:381:5: note: Taking false branch
+    if (file == NULL) {
+    ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:388:29: note: Memory is allocated
+    unsigned char *indata = malloc(fsize);
+                            ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:389:8: note: Assuming 'indata' is not equal to NULL
+    if(indata == NULL){
+       ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:389:5: note: Taking false branch
+    if(indata == NULL){
+    ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:394:8: note: Assuming 'outdata' is equal to NULL
+    if(outdata == NULL){
+       ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:394:5: note: Taking true branch
+    if(outdata == NULL){
+    ^
+/home/ubuntu/Desktop/bso_antyswirus/antivirusInstall/daemon.c:395:9: note: Potential leak of memory pointed to by 'indata'
+        printf("malloc failed\n");
+        ^
+Suppressed 202 warnings (202 in non-user code).
+Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+ubuntu@ubunu2004:~/Desktop/bso_antyswirus/antivirusInstall$ 
+
