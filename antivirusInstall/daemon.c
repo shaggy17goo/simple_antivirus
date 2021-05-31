@@ -180,7 +180,7 @@ int interpretInput(char *command, char *output) {
             snprintf(output, PATH_MAX, "in dir is malware\n   scanned: %d\n   malware: %d", fileCount, malwareCount);
     } else if (memcmp(command, "get-logs", sizeof("get-logs") - 1) == 0) {
         printf("- Logs request: %s\n", command);
-        if (sendLogs() == 0)
+        if (sendLogs() <= 0)
             strncpy(output, "null", sizeof("null"));
     } else if (memcmp(command, "decrypt-file ", sizeof("decrypt-file ") - 1) == 0) {
         ptr = extractParamFromCommand(command, 1);
@@ -217,7 +217,7 @@ int interpretInput(char *command, char *output) {
         else
             strncpy(output, "restore not successful", sizeof("restore not successful"));
     } else if ((memcmp(command, "get-backup-info", sizeof("get-backup-info") - 1) == 0)) {
-        if (sendBackupInfo() == 0)
+        if (sendBackupInfo() <= 0)
             strncpy(output, "null", sizeof("null") - 1);
     } else {
         printf("- Invalid request: %s\n", command);
