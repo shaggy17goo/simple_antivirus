@@ -12,7 +12,9 @@ compile:
 move:
 	@echo "Move files to target dir"
 	sudo mkdir -p /usr/antivirus/quarantine
+	sudo mkdir -p /usr/antivirus/backup
 	sudo chmod 700 /usr/antivirus/quarantine
+	sudo chmod 700 /usr/antivirus/backup
 	
 	sudo cp ./hashes /usr/antivirus
 	sudo chmod 444 /usr/antivirus/hashes

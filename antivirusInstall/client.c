@@ -35,7 +35,7 @@ int main(int argc, char* argv[])
     int c;
 
     //get input
-    while(printf("> "), fgets(str, PATH_MAX, stdin), !feof(stdin)) {
+    while(printf("\n> "), fgets(str, PATH_MAX, stdin), !feof(stdin)) {
         if(memcmp(str, "exit", 4)==0) {
             break;
         }
@@ -57,13 +57,17 @@ int main(int argc, char* argv[])
         memset(str,0,PATH_MAX);
 
         //wait on response
-        if ((t=recv(s, str, PATH_MAX, 0)) > 0) {
-            str[t] = '\0';
-            printf("av> %s\n", str);
-        } else {
-            if (t < 0) perror("recv");
-            else printf("Server closed connection\n");
-            exit(1);
+        printf("av> ");
+        for(;;) {
+            if ((t = recv(s, str, PATH_MAX, 0)) > 0) {
+                printf("%s", str);
+                if(str[PATH_MAX-1]=='\0')
+                    break;
+            } else {
+                if (t < 0) perror("recv");
+                else printf("Server closed connection\n");
+                exit(1);
+            }
         }
     }
 

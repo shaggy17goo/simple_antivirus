@@ -1,0 +1,587 @@
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:11:1: warning: #includes are not sorted properly [llvm-include-order]
+#include <sys/statfs.h>
+^        ~~~~~~~~~~~~~~
+         <libgen.h>
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:55:15: warning: variable 'len' is not initialized [cppcoreguidelines-init-variables]
+    socklen_t len;
+              ^
+                  = 0
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:56:18: warning: variable 't' is not initialized [cppcoreguidelines-init-variables]
+    unsigned int t;
+                 ^
+                   = 0
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:62:11: warning: variable 'hashesFile' is not initialized [cppcoreguidelines-init-variables]
+    FILE *hashesFile;
+          ^
+                     = NULL
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:63:49: warning: use 'fopen' mode 'e' to set O_CLOEXEC [android-cloexec-fopen]
+    hashesFile = fopen("/usr/antivirus/hashes", "rb");
+                                                ^~~~
+                                                "rbe"
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:85:5: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+    strncpy(local.sun_path, SOCK_PATH, sizeof(local.sun_path));
+    ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:85:5: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:101:14: warning: prefer epoll_create() to epoll_create1() because epoll_create1() allows EPOLL_CLOEXEC [android-cloexec-epoll-create]
+    int fd = epoll_create(0);
+             ^~~~~~~~~~~~~~~
+             epoll_create1(EPOLL_CLOEXEC)
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:108:17: warning: variable 'done' is not initialized [cppcoreguidelines-init-variables]
+        ssize_t done, n = 0;
+                ^
+                     = 0
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:111:19: warning: prefer accept4() to accept() because accept4() allows SOCK_CLOEXEC [android-cloexec-accept]
+        if ((s2 = accept(s, (struct sockaddr *) &remote, &t)) == -1) {
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  accept4(s, (struct sockaddr *) &remote, &t, SOCK_CLOEXEC)
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:120:13: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+            memset(command, 0, PATH_MAX);
+            ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:120:13: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:125:27: warning: statement should be inside braces [hicpp-braces-around-statements]
+                if (n < 0) perror("recv");
+                          ^
+                           {
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:139:13: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+            memset(output, 0, PATH_MAX);
+            ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:139:13: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:144:5: warning: Attempt to free released memory [clang-analyzer-unix.Malloc]
+    free(hashes);
+    ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:64:9: note: Assuming 'hashesFile' is not equal to NULL
+    if (hashesFile == NULL) {
+        ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:64:5: note: Taking false branch
+    if (hashesFile == NULL) {
+    ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:71:14: note: Memory is allocated
+    hashes = malloc(fsize);
+             ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:72:9: note: Assuming 'hashes' is not equal to NULL
+    if (hashes == NULL) {
+        ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:72:5: note: Taking false branch
+    if (hashes == NULL) {
+    ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:78:9: note: Assuming the condition is false
+    if ((s = socket(AF_UNIX, SOCK_STREAM, 0)) == -1) {
+        ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:78:5: note: Taking false branch
+    if ((s = socket(AF_UNIX, SOCK_STREAM, 0)) == -1) {
+    ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:88:9: note: Assuming the condition is false
+    if (bind(s, (struct sockaddr *) &local, len) == -1) {
+        ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:88:5: note: Taking false branch
+    if (bind(s, (struct sockaddr *) &local, len) == -1) {
+    ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:95:9: note: Assuming the condition is false
+    if (listen(s, BACK_LOG) == -1) {
+        ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:95:5: note: Taking false branch
+    if (listen(s, BACK_LOG) == -1) {
+    ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:107:5: note: Loop condition is true.  Entering loop body
+    for (;;) {
+    ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:111:13: note: Assuming the condition is true
+        if ((s2 = accept(s, (struct sockaddr *) &remote, &t)) == -1) {
+            ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:111:9: note: Taking true branch
+        if ((s2 = accept(s, (struct sockaddr *) &remote, &t)) == -1) {
+        ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:113:13: note: Memory is released
+            free(hashes);
+            ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:114:13: note:  Execution continues on line 144
+            break;
+            ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:144:5: note: Attempt to free released memory
+    free(hashes);
+    ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:155:11: warning: variable 'ptr' is not initialized [cppcoreguidelines-init-variables]
+    char *ptr;
+          ^
+              = NULL
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:161:17: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+                strncpy(output, "can't be opened", sizeof("can't be opened"));
+                ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:161:17: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:164:17: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+                strncpy(output, "file is not a malware", sizeof("file is not a malware"));
+                ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:164:17: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:167:17: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+                strncpy(output, "file is a malware", sizeof("file is a malware"));
+                ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:167:17: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:176:13: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+            strncpy(output, "fail when try opened dir", sizeof("fail when try opened dir"));
+            ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:176:13: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:177:38: warning: statement should be inside braces [google-readability-braces-around-statements]
+        } else if (malwareCount == 0)
+                                     ^
+                                      {
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:177:38: warning: statement should be inside braces [hicpp-braces-around-statements]
+        } else if (malwareCount == 0)
+                                     ^
+                                      {
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:178:13: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+            strncpy(output, "dir is clear", sizeof("dir is clear") - 1);
+            ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:178:13: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:179:13: warning: statement should be inside braces [google-readability-braces-around-statements]
+        else
+            ^
+             {
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:179:13: warning: statement should be inside braces [hicpp-braces-around-statements]
+        else
+            ^
+             {
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:180:13: warning: Call to function 'snprintf' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'snprintf_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+            snprintf(output, PATH_MAX, "in dir is malware\n   scanned: %d\n   malware: %d", fileCount, malwareCount);
+            ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:180:13: note: Call to function 'snprintf' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'snprintf_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:183:29: warning: statement should be inside braces [google-readability-braces-around-statements]
+        if (sendLogs() == 0)
+                            ^
+                             {
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:183:29: warning: statement should be inside braces [hicpp-braces-around-statements]
+        if (sendLogs() == 0)
+                            ^
+                             {
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:184:13: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+            strncpy(output, "null", sizeof("null"));
+            ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:184:13: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:188:13: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+            strncpy(output, "Decrypted successful", sizeof("Decrypted successful"));
+            ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:188:13: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:190:13: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+            strncpy(output, "Decrypted failed", sizeof("Decrypted failed"));
+            ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:190:13: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:197:32: warning: statement should be inside braces [google-readability-braces-around-statements]
+        if (addFHash(ptr) == 0)
+                               ^
+                                {
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:197:32: warning: statement should be inside braces [hicpp-braces-around-statements]
+        if (addFHash(ptr) == 0)
+                               ^
+                                {
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:198:13: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+            strncpy(output, "hash added successful", sizeof("hash added successful"));
+            ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:198:13: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:199:13: warning: statement should be inside braces [google-readability-braces-around-statements]
+        else
+            ^
+             {
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:199:13: warning: statement should be inside braces [hicpp-braces-around-statements]
+        else
+            ^
+             {
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:200:13: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+            strncpy(output, "hash not added", sizeof("hash not added"));
+            ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:200:13: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:203:33: warning: statement should be inside braces [google-readability-braces-around-statements]
+        if (addHashes(ptr) == 0)
+                                ^
+                                 {
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:203:33: warning: statement should be inside braces [hicpp-braces-around-statements]
+        if (addHashes(ptr) == 0)
+                                ^
+                                 {
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:204:13: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+            strncpy(output, "hashes added successful", sizeof("hashes added successful"));
+            ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:204:13: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:205:13: warning: statement should be inside braces [google-readability-braces-around-statements]
+        else
+            ^
+             {
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:205:13: warning: statement should be inside braces [hicpp-braces-around-statements]
+        else
+            ^
+             {
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:206:13: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+            strncpy(output, "hashes not added", sizeof("hashes not added"));
+            ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:206:13: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:209:34: warning: statement should be inside braces [google-readability-braces-around-statements]
+        if (makeBackup(ptr) == 0)
+                                 ^
+                                  {
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:209:34: warning: statement should be inside braces [hicpp-braces-around-statements]
+        if (makeBackup(ptr) == 0)
+                                 ^
+                                  {
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:210:13: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+            strncpy(output, "backup successful", sizeof("backup successful"));
+            ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:210:13: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:211:13: warning: statement should be inside braces [google-readability-braces-around-statements]
+        else
+            ^
+             {
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:211:13: warning: statement should be inside braces [hicpp-braces-around-statements]
+        else
+            ^
+             {
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:212:13: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+            strncpy(output, "backup not successful", sizeof("backup not successful"));
+            ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:212:13: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:215:37: warning: statement should be inside braces [google-readability-braces-around-statements]
+        if (restoreBackup(ptr) == 0)
+                                    ^
+                                     {
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:215:37: warning: statement should be inside braces [hicpp-braces-around-statements]
+        if (restoreBackup(ptr) == 0)
+                                    ^
+                                     {
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:216:13: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+            strncpy(output, "restore successful", sizeof("restore successful"));
+            ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:216:13: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:217:13: warning: statement should be inside braces [google-readability-braces-around-statements]
+        else
+            ^
+             {
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:217:13: warning: statement should be inside braces [hicpp-braces-around-statements]
+        else
+            ^
+             {
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:218:13: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+            strncpy(output, "restore not successful", sizeof("restore not successful"));
+            ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:218:13: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:220:35: warning: statement should be inside braces [google-readability-braces-around-statements]
+        if (sendBackupInfo() == 0)
+                                  ^
+                                   {
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:220:35: warning: statement should be inside braces [hicpp-braces-around-statements]
+        if (sendBackupInfo() == 0)
+                                  ^
+                                   {
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:221:13: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+            strncpy(output, "null", sizeof("null") - 1);
+            ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:221:13: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:224:9: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+        strncpy(output, "invalid input", sizeof("invalid input") - 1);
+        ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:224:9: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:235:11: warning: variable 'ptr' is not initialized [cppcoreguidelines-init-variables]
+    char *ptr;
+          ^
+              = NULL
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:246:11: warning: variable 'file1' is not initialized [cppcoreguidelines-init-variables]
+    FILE *file1;
+          ^
+                = NULL
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:249:46: warning: use 'fopen' mode 'e' to set O_CLOEXEC [android-cloexec-fopen]
+    file1 = fopen("/usr/antivirus/logs.txt", "rb");
+                                             ^~~~
+                                             "rbe"
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:254:5: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+    memset(buff, 0, sizeof(buff));
+    ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:254:5: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:258:9: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+        memset(buff, 0, sizeof(buff));
+        ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:258:9: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:265:11: warning: variable 'file1' is not initialized [cppcoreguidelines-init-variables]
+    FILE *file1;
+          ^
+                = NULL
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:268:49: warning: use 'fopen' mode 'e' to set O_CLOEXEC [android-cloexec-fopen]
+    file1 = fopen("/usr/antivirus/backup/info", "rb");
+                                                ^~~~
+                                                "rbe"
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:273:5: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+    memset(buff, 0, sizeof(buff));
+    ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:273:5: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:277:9: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+        memset(buff, 0, sizeof(buff));
+        ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:277:9: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:290:11: warning: variable 'file1' is not initialized [cppcoreguidelines-init-variables]
+    FILE *file1;
+          ^
+                = NULL
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:291:11: warning: variable 'file2' is not initialized [cppcoreguidelines-init-variables]
+    FILE *file2;
+          ^
+                = NULL
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:296:19: warning: variable 'bytes' is not initialized [cppcoreguidelines-init-variables]
+    unsigned long bytes;
+                  ^
+                        = 0
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:297:11: warning: variable 'ptr' is not initialized [cppcoreguidelines-init-variables]
+    char *ptr;
+          ^
+              = NULL
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:299:27: warning: 1024 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers]
+    size_t md5chunkSize = 1024;
+                          ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:304:38: warning: statement should be inside braces [google-readability-braces-around-statements]
+    if (statfs(filepath, &sfs) == -1)
+                                     ^
+                                      {
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:304:38: warning: statement should be inside braces [hicpp-braces-around-statements]
+    if (statfs(filepath, &sfs) == -1)
+                                     ^
+                                      {
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:307:34: warning: statement should be inside braces [google-readability-braces-around-statements]
+    if (sfs.f_type == randomfile)
+                                 ^
+                                  {
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:307:34: warning: statement should be inside braces [hicpp-braces-around-statements]
+    if (sfs.f_type == randomfile)
+                                 ^
+                                  {
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:311:29: warning: use 'fopen' mode 'e' to set O_CLOEXEC [android-cloexec-fopen]
+    file1 = fopen(filepath, "rb");
+                            ^~~~
+                            "rbe"
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:325:46: warning: use 'fopen' mode 'e' to set O_CLOEXEC [android-cloexec-fopen]
+    file1 = fopen("/usr/antivirus/logs.txt", "a");
+                                             ^~~
+                                             "ae"
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:335:49: warning: statement should be inside braces [google-readability-braces-around-statements]
+        if (hashesPtr > hashes + strlen(hashes))
+                                                ^
+                                                 {
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:335:49: warning: statement should be inside braces [hicpp-braces-around-statements]
+        if (hashesPtr > hashes + strlen(hashes))
+                                                ^
+                                                 {
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:342:13: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+            strncpy(filepathCopy, filepath, PATH_MAX);
+            ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:342:13: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:345:17: warning: Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+                strncat(pathToQuarantine, "_", sizeof("_"));
+                ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:345:17: note: Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:346:17: warning: Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+                strncat(pathToQuarantine, ptr, strlen(ptr));
+                ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:346:17: note: Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:352:37: warning: use 'fopen' mode 'e' to set O_CLOEXEC [android-cloexec-fopen]
+            file1 = fopen(filepath, "rb");
+                                    ^~~~
+                                    "rbe"
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:353:45: warning: use 'fopen' mode 'e' to set O_CLOEXEC [android-cloexec-fopen]
+            file2 = fopen(pathToQuarantine, "wb");
+                                            ^~~~
+                                            "wbe"
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:360:17: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+                memset(data, 0, sizeof(data));
+                ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:360:17: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:382:10: warning: variable 'dir' is not initialized [cppcoreguidelines-init-variables]
+    DIR *dir;
+         ^
+             = NULL
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:383:20: warning: variable 'dirp' is not initialized [cppcoreguidelines-init-variables]
+    struct dirent *dirp;
+                   ^
+                        = NULL
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:393:9: warning: Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+        strncat(cwd, "/", sizeof("/"));
+        ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:393:9: note: Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:398:13: warning: Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+            strncat(cwd, dirp->d_name, sizeof(dirp->d_name));
+            ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:398:13: note: Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:416:30: warning: use 'fopen' mode 'e' to set O_CLOEXEC [android-cloexec-fopen]
+    FILE *file = fopen(path, "rb");
+                             ^~~~
+                             "rbe"
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:428:5: warning: Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+    strncat(path, "_ciphered", sizeof("_ciphered"));
+    ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:428:5: note: Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:429:34: warning: use 'fopen' mode 'e' to set O_CLOEXEC [android-cloexec-fopen]
+    FILE *ciphered = fopen(path, "wb");
+                                 ^~~~
+                                 "wbe"
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:438:20: warning: variable 'indata' is not initialized [cppcoreguidelines-init-variables]
+    unsigned char *indata;
+                   ^
+                          = NULL
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:444:20: warning: variable 'outdata' is not initialized [cppcoreguidelines-init-variables]
+    unsigned char *outdata;
+                   ^
+                           = NULL
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:476:5: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+    memset(path, 0, sizeof("_ciphered") - 1);
+    ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:476:5: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:486:34: warning: use 'fopen' mode 'e' to set O_CLOEXEC [android-cloexec-fopen]
+    FILE *ciphered = fopen(path, "rb");
+                                 ^~~~
+                                 "rbe"
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:503:5: warning: Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+    strncat(path, "_decipher", sizeof("_decipher"));
+    ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:503:5: note: Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:504:30: warning: use 'fopen' mode 'e' to set O_CLOEXEC [android-cloexec-fopen]
+    FILE *file = fopen(path, "wb");
+                             ^~~~
+                             "wbe"
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:512:20: warning: variable 'indata' is not initialized [cppcoreguidelines-init-variables]
+    unsigned char *indata;
+                   ^
+                          = NULL
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:518:20: warning: variable 'outdata' is not initialized [cppcoreguidelines-init-variables]
+    unsigned char *outdata;
+                   ^
+                           = NULL
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:550:11: warning: variable 'file1' is not initialized [cppcoreguidelines-init-variables]
+    FILE *file1;
+          ^
+                = NULL
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:553:27: warning: 1024 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers]
+    size_t md5chunkSize = 1024;
+                          ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:555:19: warning: variable 'bytes' is not initialized [cppcoreguidelines-init-variables]
+    unsigned long bytes;
+                  ^
+                        = 0
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:558:29: warning: use 'fopen' mode 'e' to set O_CLOEXEC [android-cloexec-fopen]
+    file1 = fopen(filepath, "rb");
+                            ^~~~
+                            "rbe"
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:570:44: warning: use 'fopen' mode 'e' to set O_CLOEXEC [android-cloexec-fopen]
+    file1 = fopen("/usr/antivirus/hashes", "ab");
+                                           ^~~~
+                                           "abe"
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:582:44: warning: use 'fopen' mode 'e' to set O_CLOEXEC [android-cloexec-fopen]
+    file1 = fopen("/usr/antivirus/hashes", "rb");
+                                           ^~~~
+                                           "rbe"
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:600:11: warning: variable 'file1' is not initialized [cppcoreguidelines-init-variables]
+    FILE *file1;
+          ^
+                = NULL
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:601:11: warning: variable 'file2' is not initialized [cppcoreguidelines-init-variables]
+    FILE *file2;
+          ^
+                = NULL
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:603:29: warning: use 'fopen' mode 'e' to set O_CLOEXEC [android-cloexec-fopen]
+    file1 = fopen(filepath, "rb");
+                            ^~~~
+                            "rbe"
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:615:44: warning: use 'fopen' mode 'e' to set O_CLOEXEC [android-cloexec-fopen]
+    file2 = fopen("/usr/antivirus/hashes", "ab");
+                                           ^~~~
+                                           "abe"
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:627:44: warning: use 'fopen' mode 'e' to set O_CLOEXEC [android-cloexec-fopen]
+    file2 = fopen("/usr/antivirus/hashes", "rb");
+                                           ^~~~
+                                           "rbe"
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:639:11: warning: variable 'file1' is not initialized [cppcoreguidelines-init-variables]
+    FILE *file1;
+          ^
+                = NULL
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:640:11: warning: variable 'file2' is not initialized [cppcoreguidelines-init-variables]
+    FILE *file2;
+          ^
+                = NULL
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:641:11: warning: variable 'ptr' is not initialized [cppcoreguidelines-init-variables]
+    char *ptr;
+          ^
+              = NULL
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:644:19: warning: variable 'bytes' is not initialized [cppcoreguidelines-init-variables]
+    unsigned long bytes;
+                  ^
+                        = 0
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:651:5: warning: Call to function 'snprintf' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'snprintf_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+    snprintf(date, DATA_STRING, "%d-%02d-%02d-:%02d:%02d:%02d", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday,
+    ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:651:5: note: Call to function 'snprintf' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'snprintf_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:651:78: warning: 1900 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers]
+    snprintf(date, DATA_STRING, "%d-%02d-%02d-:%02d:%02d:%02d", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday,
+                                                                             ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:654:5: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+    strncpy(filepathCopy, filepath, PATH_MAX);
+    ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:654:5: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:656:5: warning: Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+    strncat(backupFilepath, date, sizeof(backupFilepath) - strlen(backupFilepath) - 1);
+    ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:656:5: note: Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:659:5: warning: Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+    strncat(backupFilepath, "_", sizeof("_"));
+    ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:659:5: note: Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:660:5: warning: Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+    strncat(backupFilepath, ptr, strlen(ptr));
+    ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:660:5: note: Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:663:29: warning: use 'fopen' mode 'e' to set O_CLOEXEC [android-cloexec-fopen]
+    file1 = fopen(filepath, "rb");
+                            ^~~~
+                            "rbe"
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:664:35: warning: use 'fopen' mode 'e' to set O_CLOEXEC [android-cloexec-fopen]
+    file2 = fopen(backupFilepath, "wb+");
+                                  ^~~~~
+                                  "wb+e"
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:672:9: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+        memset(data, 0, sizeof(data));
+        ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:672:9: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:677:49: warning: use 'fopen' mode 'e' to set O_CLOEXEC [android-cloexec-fopen]
+    file1 = fopen("/usr/antivirus/backup/info", "ab+");
+                                                ^~~~~
+                                                "ab+e"
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:695:11: warning: variable 'file1' is not initialized [cppcoreguidelines-init-variables]
+    FILE *file1;
+          ^
+                = NULL
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:696:11: warning: variable 'file2' is not initialized [cppcoreguidelines-init-variables]
+    FILE *file2;
+          ^
+                = NULL
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:697:11: warning: variable 'ptr' is not initialized [cppcoreguidelines-init-variables]
+    char *ptr;
+          ^
+              = NULL
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:703:19: warning: variable 'bytes' is not initialized [cppcoreguidelines-init-variables]
+    unsigned long bytes;
+                  ^
+                        = 0
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:706:49: warning: use 'fopen' mode 'e' to set O_CLOEXEC [android-cloexec-fopen]
+    file1 = fopen("/usr/antivirus/backup/info", "r");
+                                                ^~~
+                                                "re"
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:722:5: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+    strncpy(dst, ptr, strlen(ptr) - 1);
+    ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:722:5: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:725:5: warning: Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+    strncat(src, filepath, strlen(filepath));
+    ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:725:5: note: Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:726:24: warning: use 'fopen' mode 'e' to set O_CLOEXEC [android-cloexec-fopen]
+    file1 = fopen(src, "rb");
+                       ^~~~
+                       "rbe"
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:727:24: warning: use 'fopen' mode 'e' to set O_CLOEXEC [android-cloexec-fopen]
+    file2 = fopen(dst, "wb");
+                       ^~~~
+                       "wbe"
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:734:9: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+        memset(data, 0, sizeof(data));
+        ^
+/home/shaggy17goo/Desktop/bso_antyswirus/antivirusInstall/daemon.c:734:9: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
